@@ -80,6 +80,12 @@
                 <scope>provided</scope>
             </dependency>
 
+            <dependency>
+                <groupId>cn.com.pism</groupId>
+                <artifactId>pism-mybatis-plus-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
