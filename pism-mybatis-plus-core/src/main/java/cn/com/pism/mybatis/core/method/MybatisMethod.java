@@ -50,7 +50,7 @@ public abstract class MybatisMethod extends AbstractMethod {
         String sql;
         try {
             Template template = freeMarkerConfiguration.getTemplate(methodName + DEFAULT_SUFFIX);
-            if (tableInfo.getKeyProperty() != null && !tableInfo.getKeyProperty().isEmpty()) {
+            if (tableInfo.getKeyProperty() == null || tableInfo.getKeyProperty().isEmpty()) {
                 sql = "暂不支持无主键实体";
             } else {
                 sql = FreeMarkerTemplateUtils.processTemplateIntoString(template, tableInfoPreProcess(tableInfo));

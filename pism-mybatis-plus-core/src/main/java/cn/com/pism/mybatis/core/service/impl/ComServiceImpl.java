@@ -13,11 +13,11 @@ import java.util.Collection;
  * @author perccyking
  * @since 24-08-25 00:34
  */
-public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E> implements ComService<E> {
+public class ComServiceImpl<M extends ComMapper<T>, T> extends ServiceImpl<M, T> implements ComService<T> {
 
     @Override
     @EntityFill
-    public int batchInsert(Collection<E> list) {
+    public int batchInsert(Collection<T> list) {
         if (!CollectionUtils.isEmpty(list)) {
             return baseMapper.batchInsert(list);
         }
@@ -26,7 +26,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
 
     @Override
     @EntityFill
-    public int batchUpdate(Collection<E> list) {
+    public int batchUpdate(Collection<T> list) {
         if (!CollectionUtils.isEmpty(list)) {
             return baseMapper.batchUpdate(list);
         }
@@ -35,7 +35,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
 
     @Override
     @EntityFill
-    public int batchUpdateSelective(Collection<E> list) {
+    public int batchUpdateSelective(Collection<T> list) {
         if (!CollectionUtils.isEmpty(list)) {
             return baseMapper.batchUpdateSelective(list);
         }
@@ -44,26 +44,26 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
 
     @Override
     @EntityFill
-    public boolean insertOrUpdateById(E e) {
-        return baseMapper.insertOrUpdateById(e);
+    public boolean insertOrUpdateById(T t) {
+        return baseMapper.insertOrUpdateById(t);
     }
 
     @Override
     @EntityFill
-    public boolean insertOrUpdateSelective(E e) {
-        return baseMapper.insertOrUpdateSelective(e);
+    public boolean insertOrUpdateSelective(T t) {
+        return baseMapper.insertOrUpdateSelective(t);
     }
 
     @Override
     @EntityFill
-    public boolean insertSelective(E e) {
-        return baseMapper.insertSelective(e);
+    public boolean insertSelective(T entity) {
+        return baseMapper.insertSelective(entity);
     }
 
     @Override
     @EntityFill
-    public boolean updateSelectiveByPrimaryKey(E e) {
-        return baseMapper.updateSelectiveByPrimaryKey(e);
+    public boolean updateSelectiveByPrimaryKey(T entity) {
+        return baseMapper.updateSelectiveByPrimaryKey(entity);
     }
 
 
@@ -74,7 +74,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
      */
     @Override
     @EntityFill
-    public boolean save(E entity) {
+    public boolean save(T entity) {
         return super.save(entity);
     }
 
@@ -86,7 +86,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
     @Transactional(rollbackFor = Exception.class)
     @Override
     @EntityFill
-    public boolean saveBatch(Collection<E> entityList) {
+    public boolean saveBatch(Collection<T> entityList) {
         return saveBatch(entityList, DEFAULT_BATCH_SIZE);
     }
 
@@ -98,7 +98,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
      */
     @EntityFill
     @Override
-    public boolean saveBatch(Collection<E> entityList, int batchSize) {
+    public boolean saveBatch(Collection<T> entityList, int batchSize) {
         return super.saveBatch(entityList, batchSize);
     }
 
@@ -110,7 +110,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
     @Transactional(rollbackFor = Exception.class)
     @EntityFill
     @Override
-    public boolean saveOrUpdateBatch(Collection<E> entityList) {
+    public boolean saveOrUpdateBatch(Collection<T> entityList) {
         return super.saveOrUpdateBatch(entityList);
     }
 
@@ -122,7 +122,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
      */
     @Override
     @EntityFill
-    public boolean saveOrUpdateBatch(Collection<E> entityList, int batchSize) {
+    public boolean saveOrUpdateBatch(Collection<T> entityList, int batchSize) {
         return super.saveOrUpdateBatch(entityList, batchSize);
     }
 
@@ -133,7 +133,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
      */
     @Override
     @EntityFill
-    public boolean updateById(E entity) {
+    public boolean updateById(T entity) {
         return super.updateById(entity);
     }
 
@@ -145,7 +145,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
     @Transactional(rollbackFor = Exception.class)
     @Override
     @EntityFill
-    public boolean updateBatchById(Collection<E> entityList) {
+    public boolean updateBatchById(Collection<T> entityList) {
         return super.updateBatchById(entityList);
     }
 
@@ -157,7 +157,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
      */
     @Override
     @EntityFill
-    public boolean updateBatchById(Collection<E> entityList, int batchSize) {
+    public boolean updateBatchById(Collection<T> entityList, int batchSize) {
         return super.updateBatchById(entityList, batchSize);
     }
 
@@ -168,7 +168,7 @@ public class ComServiceImpl<M extends ComMapper<E>, E> extends ServiceImpl<M, E>
      */
     @Override
     @EntityFill
-    public boolean saveOrUpdate(E entity) {
+    public boolean saveOrUpdate(T entity) {
         return super.saveOrUpdate(entity);
     }
 }
