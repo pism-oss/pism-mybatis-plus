@@ -15,7 +15,7 @@ import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import java.io.IOException;
 
 import static cn.com.pism.mybatis.core.constant.MybatisConstants.SQL_SCRIPT;
-import static org.springframework.boot.autoconfigure.freemarker.FreeMarkerProperties.DEFAULT_SUFFIX;
+import static org.springframework.boot.freemarker.autoconfigure.FreeMarkerProperties.DEFAULT_SUFFIX;
 
 /**
  * @author perccyking
